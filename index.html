@@ -1,21 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
- <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
- <py-env>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Maker</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <header style="background-color: green;padding: 10px;">
+        <h1 style="text-align: center; color: white;">Resume Maker</h1>
+    </header>
+    <h2>Personal Informations:</h2>
+    <div style="padding-left: 20px;">
+        <main>
+        
+            <form onsubmit="generateResume()" action="h.html" method="get">
+            <div  >
+                <label for="Name"><b>Name:</b></label>
+                <input type="text" id="Name" name="Name" placeholder="Your Name" required class="i" style="margin-left: 97px;">
+            </div>
+            <br>
+            <div >
+                <label for="Email"><b>Email:</b></label>
+                <input type="email" id="Email" name="Email" placeholder="Example@gmail.com" required class="i" style="margin-left: 96px;">
+            </div>
+            <br>
+            <div>
+                <label for="Mobile Number"><b>Mobile Number:</b></label>
+                <input type="tel" id="Mobile Number" name="Mobile Number" placeholder="000-0000-000" required class="i" style="margin-left: 27px;">
+            </div>
+            <br>
+            <div>
+                <label for="dob"><b>Date Of Birth:</b></label>
+                <input type="date" id="dob" name="dob" required class="i" style="margin-left: 43px;">
+            </div>
+            <br>
+            <div>
+                <label for="des"><b>Designition:</b></label>
+                <input type="text" id="des" name="des" placeholder="Ex:Student" required class="i" style="margin-left: 60px;">
+            </div>
+            <br>
+            <div>
+                <label for="exp skill"><b>Experience & Skills:</b></label>
+                <textarea name="exp skill" id="exp skill" cols="30" rows="3" required class="i"></textarea>
+            </div>
+            <br>
+            <div><label for="address" style="margin-bottom: 30px;"><b>Address:</b></label>
+                <textarea name="address" id="address" cols="30" rows="3" placeholder="Your Current Address" required class="i" style="margin-left: 80px;"></textarea>
+            </div>
+         </div>
+        <h2>Education:</h2>
+        <div style="padding-left: 20px;">
+         <div>
+                <label for="Degree"><b>Degree:</b></label>
+                <input type="text" id="Degree" name="Degree" required placeholder="Ex: Be.CSE" class="i" style="margin-left: 87px;">
+            </div>
+            <br>
+            <div>
+                <label for="university"><b>University:</b></label>
+                <input type="text" id="university" name="university" required placeholder="Ex:Anna university" class="i" style="margin-left: 63px;">
+            </div>
+            <br>
+            <div>
+                <label for="yop"><b>Year Of Passing:</b></label>
+                <input type="date" id="yop" name="yop" required class="i" style="margin-left: 26px;">
+            </div>
+            <div style="padding-left: 100px;padding-top: 40px;">
+                <button type="submit" style="color: white; background-color: green;">Submit</button>
+                <button type="Reset" style="color:white;background-color: black;">Reset</button>
+             </div>
+             </form>
 
- </py-env>
- <title>Resume Maker</title>
- </head>
+        </main>
+    </div>
+    <br>
+    <div style="padding-top: 18%;">
+    <footer style="text-align: center;padding: 1px; background-color:black;">
+            <h3 style="color: white;">Thanks For Using</h3>
+    </footer>
+    </div>
 
- <body>
- <py-script src="index.py">
- </py-script>
+    <script>
 
- 
- </body>
+        function generateResume() {
+            const name = document.getElementById("Name");
+            const email = document.getElementById("Email");
+            const mobileNumber = document.getElementById("Mobile Number");
+            const dob = document.getElementById("dob");
+            const designation = document.getElementById("des");
+            const experienceAndSkills = document.getElementById("exp skill");
+            const address = document.getElementById("address");
+            const degree = document.getElementById("Degree");
+            const university = document.getElementById("university");
+            const yearOfPassing = document.getElementById("yop");
+        }
+    
+    </script>
+    
+    
+    
+</body>
 </html>
