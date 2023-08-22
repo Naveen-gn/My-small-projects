@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Maker</title>
-</head>
+    
 <body style="margin: 0;padding: 0;">
     <header style="background-color: green;padding: 10px;">
         <h1 style="text-align: center; color: white;">Resume Maker</h1>
@@ -13,7 +13,7 @@
     <div style="padding-left: 20px;">
         <main>
         
-            <form onsubmit="generateResume()" action="h.html" method="get">
+            <form id="pdf-form" >
             <div  >
                 <label for="Name"><b>Name:</b></label>
                 <input type="text" id="Name" name="Name" placeholder="Your Name" required class="i" style="margin-left: 97px;">
@@ -24,17 +24,17 @@
                 <input type="email" id="Email" name="Email" placeholder="Example@gmail.com" required class="i" style="margin-left: 96px;">
             </div>
             <br>
-            <div>
+            <div >
                 <label for="Mobile Number"><b>Mobile Number:</b></label>
                 <input type="tel" id="Mobile Number" name="Mobile Number" placeholder="000-0000-000" required class="i" style="margin-left: 27px;">
             </div>
             <br>
-            <div>
+            <div >
                 <label for="dob"><b>Date Of Birth:</b></label>
                 <input type="date" id="dob" name="dob" required class="i" style="margin-left: 43px;">
             </div>
             <br>
-            <div>
+            <div >
                 <label for="des"><b>Designition:</b></label>
                 <input type="text" id="des" name="des" placeholder="Ex:Student" required class="i" style="margin-left: 60px;">
             </div>
@@ -44,59 +44,98 @@
                 <textarea name="exp skill" id="exp skill" cols="30" rows="3" required class="i"></textarea>
             </div>
             <br>
-            <div><label for="address" style="margin-bottom: 30px;"><b>Address:</b></label>
+            <div ><label for="address" style="margin-bottom: 30px;"><b>Address:</b></label>
                 <textarea name="address" id="address" cols="30" rows="3" placeholder="Your Current Address" required class="i" style="margin-left: 80px;"></textarea>
             </div>
-         </div>
+         
         <h2>Education:</h2>
-        <div style="padding-left: 20px;">
-         <div>
+        <div style="padding-left: 20px;" >
+            
+            <div >
                 <label for="Degree"><b>Degree:</b></label>
                 <input type="text" id="Degree" name="Degree" required placeholder="Ex: Be.CSE" class="i" style="margin-left: 87px;">
             </div>
+
             <br>
-            <div>
+
+            <div >
                 <label for="university"><b>University:</b></label>
                 <input type="text" id="university" name="university" required placeholder="Ex:Anna university" class="i" style="margin-left: 63px;">
             </div>
+
             <br>
-            <div>
+
+            <div >
                 <label for="yop"><b>Year Of Passing:</b></label>
                 <input type="date" id="yop" name="yop" required class="i" style="margin-left: 26px;">
             </div>
+
             <div style="padding-left: 100px;padding-top: 40px;">
-                <button type="submit" style="color: white; background-color: green;">Submit</button>
+                <button type="button" id="generate-pdf" style="color: white; background-color:darkgreen;" >Generate Resume</button>
                 <button type="Reset" style="color:white;background-color: black;">Reset</button>
-             </div>
+            </div>
+
              </form>
+
+<script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const generatePdfButton = document.getElementById("generate-pdf");
+        
+                    generatePdfButton.addEventListener("click", function () {
+                        const name = document.getElementById("Name").value;
+                        const email = document.getElementById("Email").value;
+                        const Mobile_Number = document.getElementById("Mobile Number").value;
+                        const dob= document.getElementById("dob").value;
+                        const des= document.getElementById("des").value;
+                        const exp_skill= document.getElementById("exp skill").value;
+                        const address= document.getElementById("address").value;
+                        const Degree= document.getElementById("Degree").value;
+                        const university= document.getElementById("university").value;
+                        const yop= document.getElementById("yop").value;
+                        
+                        
+                        // Create a printable content string
+                        const content = `
+                        <p>Name              :${name} <p>
+                        <p>Email             : ${email} <p>
+                        <p>Mobile Number     : ${Mobile_Number} <p>
+                        <p>Date of Birth     : ${dob} <p>
+                        <p>Designition       : ${des} <p>
+                        <p>Experience & Skill: ${exp_skill} <p>
+                        <p>Address           : ${address} <p>
+                        <p>Degree            : ${Degree} <p>
+                        <p>University        : ${university}<p>
+                        <p>Year Of Passing   : ${yop} <p>
+                        `;
+        
+                        // Open a new window with the printable content
+                        const printWindow = window.open("", "_blank");
+                        printWindow.document.write(content);
+                        printWindow.document.close();
+        
+                        // Print the window
+                        printWindow.print();
+
+                        
+                           
+                    });
+                });
+
+
+
+
+
+            
+            </script>
 
         </main>
     </div>
-    <br>
+    <br>    
     <div style="padding-top: 18%;">
-    <footer style="text-align: center;padding: 1px; background-color:black;">
-            <h3 style="color: white;">Thanks For Using</h3>
-    </footer>
-    </div>
-
-    <script>
-
-        function generateResume() {
-            const name = document.getElementById("Name");
-            const email = document.getElementById("Email");
-            const mobileNumber = document.getElementById("Mobile Number");
-            const dob = document.getElementById("dob");
-            const designation = document.getElementById("des");
-            const experienceAndSkills = document.getElementById("exp skill");
-            const address = document.getElementById("address");
-            const degree = document.getElementById("Degree");
-            const university = document.getElementById("university");
-            const yearOfPassing = document.getElementById("yop");
-        }
-    
-    </script>
-    
-    
+        <footer style="text-align: center;padding: 1px; background-color:black;">
+                <h3 style="color: white;">Thanks For Using</h3>
+        </footer>
+        </div>
     
 </body>
 </html>
