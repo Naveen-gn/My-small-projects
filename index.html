@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<Docktype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
                 <label for="Email"><b>Email:</b></label>
                 <input type="email" id="Email" name="Email" placeholder="Example@gmail.com" required class="i" style="margin-left: 96px;">
             </div>
-            <br>
+            <br><b>
             <div >
                 <label for="Mobile Number"><b>Mobile Number:</b></label>
                 <input type="tel" id="Mobile Number" name="Mobile Number" placeholder="000-0000-000" required class="i" style="margin-left: 27px;">
@@ -93,8 +93,6 @@
                         const university= document.getElementById("university").value;
                         const yop= document.getElementById("yop").value;
                         
-                        
-                        // Create a printable content string
                         const content = `
                         <p>Name              :${name} <p>
                         <p>Email             : ${email} <p>
@@ -108,7 +106,6 @@
                         <p>Year Of Passing   : ${yop} <p>
                         `;
         
-                        // Open a new window with the printable content
                         const printWindow = window.open("", "_blank");
                         printWindow.document.write(content);
                         printWindow.document.close();
